@@ -3,25 +3,23 @@
 
 #include <QWidget>
 
-class QCustomPlot;
+#include "qcustomplot.h"
 
 namespace WeaterGraph {
 
-struct Atmosphere {
-    QVector<double> temperature;
-    QVector<double> wetness;
+struct WeaterData {
+    QVector<double> height;
+    QVector<double> value;
 };
 
-struct Wind {
-    QVector<double> speed;
-    QVector<double> direction;
+enum Plot {
+    Temperature,
+    Wetness,
+    WindSpeed,
+    WindDirection,
+    AirPressure,
+    AirDensity
 };
-
-struct Air {
-    QVector<double> pressure;
-    QVector<double> density;
-};
-
 
 class GraphWidget : public QWidget
 {
@@ -32,13 +30,13 @@ public:
     ~GraphWidget();
 
 public slots:
-    void setAtmosphereData(Atmosphere data);
-    void setWindData(Wind data);
-    void setAirData(Air data);
+    void setWeaterData(WeaterData data, Plot type);
 
 private:
     void initControls();
     void initPlotWidget();
+
+    void generateAtmData();
 
 private:
     QCustomPlot *plot;
