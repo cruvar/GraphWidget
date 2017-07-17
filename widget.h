@@ -31,15 +31,18 @@ public:
 
 public slots:
     void setWeaterData(WeaterData data, Plot type);
+    void setGraphColor(const QColor &color, Plot type);
+    void changePlot(int index);
 
 private:
     void initControls();
     void initPlotWidget();
 
-    void generateAtmData();
+    void generateAtmData(int vectorSize);
 
 private:
     QCustomPlot *plot;
+    QComboBox *cbGraphs;
 
 };
 
