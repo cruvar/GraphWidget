@@ -14,7 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    qcustomplot.cpp
+    qcustomplot/qcustomplot.cpp
 
 HEADERS  += widget.h \
-    qcustomplot.h
+    qcustomplot/qcustomplot.h
